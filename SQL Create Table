@@ -1,0 +1,20 @@
+--TRACK TABLE
+CREATE Table TRACK(
+    TrackID varchar(4) not null,
+    TrackName varchar2(150) not null,
+    ReleaseDate date not null,
+    StreamNum number(*,0) not null,
+    BPM number(3,0) not null,
+    TrackKey varchar2(2),
+    TrackMode char(5) check (TrackMode in ('Major','Minor')) not null,
+    Danceability number(3,0),
+    ValencePercent number(3,0),
+    EnergyPercent number(3,0),
+    AcousticPercent number(3,0),
+    InstrumentPercent number(3,0),
+    LivenessPercent number(3,0),
+    SpechinessPercent number(3,0),
+    ArtistID varchar2(4) not null,
+    constraints TrackPK Primary key (TrackID),
+    constraints TrackFK1 Foreign Key (ArtistID) references Artist (ArtistID)
+);
